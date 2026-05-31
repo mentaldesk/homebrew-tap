@@ -1,0 +1,47 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    name: brew audit
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: brew style
+        run: brew style Formula/
+
+      - name: brew audit --strict --online
+        run: brew audit --strict --online Formula/tuicode.rb
+
+  install:
+    name: brew install (${{ matrix.runner }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # arm64 macOS only — the formula has no osx-x64 bottle (Intel Macs
+        # are EOL upstream). Linux runners pick up the linux-x64 / linux-arm64
+        # tarballs from upstream.
+        runner: [macos-14, ubuntu-latest, ubuntu-24.04-arm]
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: brew install --build-from-source
+        run: brew install --verbose --build-from-source ./Formula/tuicode.rb
+
+      - name: brew test
+        run: brew test tuicode
+
+      - name: brew uninstall
+        run: brew uninstall tuicode
