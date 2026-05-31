@@ -13,13 +13,18 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Tap from checkout
+        # `brew audit [path]` is disabled; the formula must be looked up by name
+        # under a tap. Tap the checked-out clone at its real path.
+        run: brew tap mentaldesk/tap "$(pwd)"
 
       - name: brew style
-        run: brew style Formula/
+        run: brew style mentaldesk/tap
 
       - name: brew audit --strict --online
-        run: brew audit --strict --online Formula/tuicode.rb
+        run: brew audit --strict --online mentaldesk/tap/tuicode
 
   install:
     name: brew install (${{ matrix.runner }})
@@ -27,21 +32,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # arm64 macOS only — the formula has no osx-x64 bottle (Intel Macs
-        # are EOL upstream). Linux runners pick up the linux-x64 / linux-arm64
-        # tarballs from upstream.
+        # arm64 macOS only — Intel Macs are EOL upstream so no osx-x64 build.
+        # Linux runners exercise the linux-x64 / linux-arm64 tarballs.
         runner: [macos-14, ubuntu-latest, ubuntu-24.04-arm]
     steps:
       - uses: actions/checkout@v6
 
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
 
-      - name: brew install --build-from-source
-        run: brew install --verbose --build-from-source ./Formula/tuicode.rb
+      - name: Tap from checkout
+        run: brew tap mentaldesk/tap "$(pwd)"
+
+      - name: brew install
+        run: brew install --verbose mentaldesk/tap/tuicode
 
       - name: brew test
-        run: brew test tuicode
+        run: brew test mentaldesk/tap/tuicode
 
       - name: brew uninstall
-        run: brew uninstall tuicode
+        run: brew uninstall mentaldesk/tap/tuicode
