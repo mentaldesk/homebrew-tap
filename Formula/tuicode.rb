@@ -1,24 +1,24 @@
 class Tuicode < Formula
   desc "Minimalist terminal code editor for working over SSH"
   homepage "https://github.com/mentaldesk/TuiCode"
-  version "0.0.3"
+  version "0.0.4"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/mentaldesk/TuiCode/releases/download/v#{version}/tuicode-#{version}-osx-arm64.tar.gz"
-      sha256 "6f7883f5f64e3ef67476fca1bf8760e1eaba1bb88d78f3f9878b5d6aa37cf4a6"
+      sha256 "3680f8661dae14df8219494b3af35a5ab41bb0cadb8f1271b5450a77879123b7"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/mentaldesk/TuiCode/releases/download/v#{version}/tuicode-#{version}-linux-x64.tar.gz"
-      sha256 "4b3e904e0b95c4d45b5b0d8671472c9683d7206b29353a30ec6c74aeeacb54ae"
+      sha256 "07913ed989e2c8492add10e50d75ff328c280e12170f8c174827434d0d928e7f"
     end
     on_arm do
       url "https://github.com/mentaldesk/TuiCode/releases/download/v#{version}/tuicode-#{version}-linux-arm64.tar.gz"
-      sha256 "c641ff2cd59f10b80e5844decd8658c6633c4bc3a89397d195265eb2d4579d4f"
+      sha256 "64749e5b5c9b9c48f2f94b5a9c1f8a759205c71a787675f25d68af8eeeaa4c3e"
     end
   end
 
