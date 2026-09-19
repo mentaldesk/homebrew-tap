@@ -20,7 +20,10 @@ jobs:
         run: brew style mentaldesk/tap
 
       - name: brew audit --strict --online
-        run: brew audit --strict --online mentaldesk/tap/tuicode
+        run: |
+          for formula in Formula/*.rb; do
+            brew audit --strict --online "mentaldesk/tap/$(basename "$formula" .rb)"
+          done
 
   install:
     name: brew install (${{ matrix.runner }})
@@ -38,11 +41,11 @@ jobs:
         # Auto-taps the checked-out repo as mentaldesk/tap.
         uses: Homebrew/actions/setup-homebrew@main
 
-      - name: brew install
-        run: brew install --verbose mentaldesk/tap/tuicode
-
-      - name: brew test
-        run: brew test mentaldesk/tap/tuicode
-
-      - name: brew uninstall
-        run: brew uninstall mentaldesk/tap/tuicode
+      - name: brew install, test, uninstall
+        run: |
+          for formula in Formula/*.rb; do
+            name="mentaldesk/tap/$(basename "$formula" .rb)"
+            brew install --verbose "$name"
+            brew test "$name"
+            brew uninstall "$name"
+          done
