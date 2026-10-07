@@ -5,22 +5,23 @@ class ATeam < Formula
 
   depends_on "gh"
   depends_on "jq"
+  uses_from_macos "sqlite"
 
   on_macos do
     on_arm do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.13/a-team-0.1.13-osx-arm64.tar.gz"
-      sha256 "15bdb068e94a32e4bdbd8e5c429617cce5f86b63f5f03cad5eb8ac429a0fffd0"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.14/a-team-0.1.14-osx-arm64.tar.gz"
+      sha256 "6ddc423c211909fde93207e310e248d90702154140ed02cbab946eb61519014e"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.13/a-team-0.1.13-linux-x64.tar.gz"
-      sha256 "3e86eb7694f08d6624604e42e9ad8eb8c5af8ce74951a2c0aabf9a0a423e3d0b"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.14/a-team-0.1.14-linux-x64.tar.gz"
+      sha256 "d732ff1b8c66398772dfe891998b0d786e5f0a374f82c96c29b87c299727319c"
     end
     on_arm do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.13/a-team-0.1.13-linux-arm64.tar.gz"
-      sha256 "d7408da8b116fd3811ebecff7fd8eb3ea250e44e4830abe1dd210579ee056c69"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.1.14/a-team-0.1.14-linux-arm64.tar.gz"
+      sha256 "f5c3f82de1cd20f29bf7bd2dc484dd75370c058ba1f83b9f104a4de6e88cb203"
     end
   end
 
