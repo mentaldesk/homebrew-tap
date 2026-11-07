@@ -9,19 +9,19 @@ class ATeam < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.54/a-team-0.2.54-osx-arm64.tar.gz"
-      sha256 "792510a83428cfdef539845aa155a08ebccf17a627b64f4195c9aedba8719569"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.55/a-team-0.2.55-osx-arm64.tar.gz"
+      sha256 "1597e69ebd15236c902ff57697c2c55ddb13a54e1da7f2a314dc19dd277b5552"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.54/a-team-0.2.54-linux-x64.tar.gz"
-      sha256 "0dc43281e8edcd7c79940d0f3da66781eea6b6c5983b79d563f8909745f9aec5"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.55/a-team-0.2.55-linux-x64.tar.gz"
+      sha256 "824f72553c9d1218fba81f684cfcb31d2c7e0ccad14b6bbbe73bae8814b11b1c"
     end
     on_arm do
-      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.54/a-team-0.2.54-linux-arm64.tar.gz"
-      sha256 "13cb7ee268451779d4c0793598ad265db828d127695bb36ac166b6a056989f1d"
+      url "https://github.com/mentaldesk/a-team/releases/download/v0.2.55/a-team-0.2.55-linux-arm64.tar.gz"
+      sha256 "9d9ba9876c89978c3db41c228299e025db03138249000cc39ba794d7cbcfa8d5"
     end
   end
 
