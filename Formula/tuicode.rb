@@ -5,19 +5,19 @@ class Tuicode < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.24/tuicode-0.9.24-osx-arm64.tar.gz"
-      sha256 "3599bcba3f90de4d29d534f63b7129e6d07bd1afcde1bfefe464c3fe2c8dde7c"
+      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.25/tuicode-0.9.25-osx-arm64.tar.gz"
+      sha256 "bf5d796cb5fc3a0e1c4ea1947e2d3cc61af0b0324a801c7014779245c6a75449"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.24/tuicode-0.9.24-linux-x64.tar.gz"
-      sha256 "6b62db24cbf29a2e350ee2aefbef759e99fd98a11dac777402a5456508c7e7f8"
+      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.25/tuicode-0.9.25-linux-x64.tar.gz"
+      sha256 "dcb78d7d4e1812b587be03363bf49ec0c513a44678ac23ce8f0d43c770f5c468"
     end
     on_arm do
-      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.24/tuicode-0.9.24-linux-arm64.tar.gz"
-      sha256 "8a5038d277689a2693f9da337620e09197af2afe71ecf392f8d80e005b1c81cb"
+      url "https://github.com/mentaldesk/TuiCode/releases/download/v0.9.25/tuicode-0.9.25-linux-arm64.tar.gz"
+      sha256 "cbe33c9dd43c202314012abb4b69da9d6931b141fea65a9ff1ab38c9adb7f065"
     end
   end
 
